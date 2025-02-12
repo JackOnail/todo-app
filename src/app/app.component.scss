@@ -1,0 +1,87 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    &__input-group {
+        display: flex;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 20px;
+    }
+
+    &__input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #EEE;
+        border-radius: 5px;
+    }
+
+    &__button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 20px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #EEE;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        animation: slideIn 0.5s ease-out;
+    }
+
+    &__delete-button {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__task {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    &__checkbox {
+        cursor: pointer;
+    }
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+

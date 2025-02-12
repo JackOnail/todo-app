@@ -1,0 +1,55 @@
+{
+  "hash": "f4965662",
+  "configHash": "0c7588ce",
+  "lockfileHash": "43affb6f",
+  "browserHash": "4e988d15",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "7a9eb90a",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "d1f88aa4",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "e6ced6fb",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "6504af3f",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "d442865e",
+      "needsInterop": false
+    },
+    "@angular/cdk/drag-drop": {
+      "src": "../../../../../../node_modules/@angular/cdk/fesm2022/drag-drop.mjs",
+      "file": "@angular_cdk_drag-drop.js",
+      "fileHash": "a283ab5c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-NS55CUIM": {
+      "file": "chunk-NS55CUIM.js"
+    },
+    "chunk-4SQ4UT5D": {
+      "file": "chunk-4SQ4UT5D.js"
+    },
+    "chunk-V3UUEMBL": {
+      "file": "chunk-V3UUEMBL.js"
+    }
+  }
+}

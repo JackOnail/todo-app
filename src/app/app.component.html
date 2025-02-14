@@ -1,11 +1,17 @@
-<main class="character-container">
-  <div class="character-container__input-group input-group mb-3">
-    <input class="character-container__input form-control" [(ngModel)]="newCharacterName" placeholder="Ajouter un personnage" (keyup.enter)="addCharacter()" />
-    <button class="character-container__button btn btn-primary" (click)="addCharacter()">Ajouter</button>
+<main class="app-container">
+  <div class="app-container__input-group input-group mb-3">
+    <input class="app-container__input form-control" [(ngModel)]="newCharacterName" placeholder="Ajouter un personnage" (keyup.enter)="addCharacter()" />
+    <button class="app-container__button btn btn-primary" (click)="addCharacter()">Ajouter</button>
   </div>
 
-  <ul class="character-container__list list-group">
-    <app-character *ngFor="let character of characterList; let i=index" [character]="character" (toggle)="toggleCharacterStatus(i)" (delete)="removeCharacter(character.id)"></app-character>
-  </ul>
+  <section class="app-container__character-cards">
+    <app-character 
+    *ngFor="let character of characterList; let i=index" 
+    [character]="character" 
+    (toggle)="toggleCharacterStatus(i)" 
+    (delete)="removeCharacter(character.id)">
+    </app-character>
+  </section>
+  
 </main>
 <router-outlet />

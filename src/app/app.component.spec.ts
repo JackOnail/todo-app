@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { CharacterComponent } from './components/character/character.component';
 
 describe('AppComponent', () => {
   // Set up the testing module before each test.
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, CharacterComponent],
     }).compileComponents();
   });
 
@@ -36,22 +37,22 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, todo-app');
   });
 
-  // Test if a task is added and saved to localStorage
-  it('should add a task and save to localStorage', () => {
+  // Test if a character is added and saved to localStorage
+  it('should add a character and save to localStorage', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    app.newTask = 'Test Task';
-    app.addTask();
-    expect(app.todoList.length).toBe(1);
-    expect(JSON.parse(localStorage.getItem('todoList') || '[]').length).toBe(1);
+    app.newCharacterName = 'Test Character';
+    app.addCharacter();
+    expect(app.characterList.length).toBe(1);
+    expect(JSON.parse(localStorage.getItem('characterList') || '[]').length).toBe(1);
   });
 
-  // Test if tasks are loaded from localStorage
-  it('should load tasks from localStorage', () => {
-    localStorage.setItem('todoList', JSON.stringify([{ id: 1, task: 'Test Task', completed: false }]));
+  // Test if characters are loaded from localStorage
+  it('should load characters from localStorage', () => {
+    localStorage.setItem('characterList', JSON.stringify([{ id: 1, name: 'Test Character', hp: 100, status: 'Healthy', completed: false }]));
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     app.ngOnInit();
-    expect(app.todoList.length).toBe(1);
+    expect(app.characterList.length).toBe(1);
   });
 });

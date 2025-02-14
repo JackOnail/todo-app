@@ -1,0 +1,15 @@
+<li class="character-container__item list-group-item d-flex justify-content-between align-items-center" [ngClass]="{'character-container__item--completed': character.completed}">
+  <span class="character-container__name" [class.character-container__name--completed]="character.completed">
+    {{character.name}}
+  </span>
+  <span class="character-container__hp">PV: {{character.hp}}</span>
+  <div class="d-flex align-items-center">
+    <input
+      class="character-container__checkbox form-check-input me-2"
+      type="checkbox"
+      [(checked)]="character.completed"
+      (change)="toggleStatus()"
+    />
+    <button class="character-container__delete-button btn btn-danger" (click)="deleteCharacter()">X</button>
+  </div>
+</li>

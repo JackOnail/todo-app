@@ -2,78 +2,74 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-
-// Define the structure of a TodoItem
-export interface TodoItem {
-  id: number;
-  task: string;
-  completed: boolean;
-}
+import { CharacterComponent, Character } from './components/character/character.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, NgFor, NgClass],
+  imports: [RouterOutlet, FormsModule, NgFor, NgClass, CharacterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
 
-  // Initialize an empty array to hold the list of todo items
-  todoList : TodoItem [] = [];
-  // Initialize a string to hold the new task input
-  newTask: string = '';
+  // Initialize an empty array to hold the list of characters
+  characterList: Character[] = [];
+  // Initialize a string to hold the new character input
+  newCharacterName: string = '';
 
-  // Load tasks from localStorage when the component initializes
+  // Load characters from localStorage when the component initializes
   ngOnInit() {
-    this.loadTasks();
+    this.loadCharacters();
   }
 
-  // Add a new task to the todo list
-  addTask() {
-    // Check if the new task input is not empty
-    if(this.newTask.trim() !== '') {
-      // Create a new todo item
-      const newTodoItem : TodoItem= {
+  // Add a new character to the character list
+  addCharacter() {
+    // Check if the new character name is not empty
+    if(this.newCharacterName.trim() !== '') {
+      // Create a new character
+      const newCharacter: Character = {
         id: Date.now(), // Use the current timestamp as the id
-        task: this.newTask,
+        name: this.newCharacterName,
+        hp: 100, // Default HP
+        status: 'Healthy', // Default status
         completed: false // Set the completed status to false
       }
 
-      // Add the new todo item to the list
-      this.todoList.push(newTodoItem);
-      // Clear the new task input
-      this.newTask = '';
+      // Add the new character to the list
+      this.characterList.push(newCharacter);
+      // Clear the new character input
+      this.newCharacterName = '';
       // Save the updated list to localStorage
-      this.saveTasks();
+      this.saveCharacters();
     }
   }
 
-  // Toggle the completed status of a task
-  toggleCompleted(index: number): void{
-    // Toggle the completed status
-    this.todoList[index].completed = !this.todoList[index].completed;
+  // Toggle the status of a character
+  toggleCharacterStatus(index: number): void {
+    // Toggle the status
+    this.characterList[index].completed = !this.characterList[index].completed;
     // Save the updated list to localStorage
-    this.saveTasks();
+    this.saveCharacters();
   }
 
-  // Delete a task from the todo list
-  deleteTask(id: number): void {
-    // Filter out the task with the given id
-    this.todoList = this.todoList.filter(todoItem => todoItem.id !== id);
+  // Remove a character from the character list
+  removeCharacter(id: number): void {
+    // Filter out the character with the given id
+    this.characterList = this.characterList.filter(character => character.id !== id);
     // Save the updated list to localStorage
-    this.saveTasks();
+    this.saveCharacters();
   }
 
-  // Save the todo list to localStorage
-  saveTasks(): void {
-    localStorage.setItem('todoList', JSON.stringify(this.todoList));
+  // Save the character list to localStorage
+  saveCharacters(): void {
+    localStorage.setItem('characterList', JSON.stringify(this.characterList));
   }
 
-  // Load the todo list from localStorage
-  loadTasks(): void {
-    const savedTasks = localStorage.getItem('todoList');
-    if (savedTasks) {
-      this.todoList = JSON.parse(savedTasks);
+  // Load the character list from localStorage
+  loadCharacters(): void {
+    const savedCharacters = localStorage.getItem('characterList');
+    if (savedCharacters) {
+      this.characterList = JSON.parse(savedCharacters);
     }
   }
 }

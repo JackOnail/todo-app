@@ -1,14 +1,15 @@
-.character-container {
+.app-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    padding: 20px;
 
     &__input-group {
         display: flex;
         width: 100%;
         max-width: 500px;
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     &__input {
@@ -65,5 +66,14 @@
 
     &__checkbox {
         cursor: pointer;
+    }
+
+    &__character-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 1000px;
     }
 }

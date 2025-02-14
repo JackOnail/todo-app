@@ -1,13 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-export interface Character {
-  id: number;
-  name: string;
-  hp: number;
-  status: string;
-  completed: boolean;
-}
+import { Character } from '../../models/character.model';
 
 @Component({
   selector: 'app-character',
@@ -20,6 +13,7 @@ export class CharacterComponent {
   @Input() character!: Character;
   @Output() toggle = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
+  @Output() update = new EventEmitter<void>();
 
   toggleStatus() {
     this.toggle.emit();
@@ -27,5 +21,17 @@ export class CharacterComponent {
 
   deleteCharacter() {
     this.delete.emit();
+  }
+
+  increaseHp() {
+    this.character.hp += 1;
+    this.update.emit();
+  }
+
+  decreaseHp() {
+    if (this.character.hp > 0) {
+      this.character.hp -= 1;
+      this.update.emit();
+    }
   }
 }

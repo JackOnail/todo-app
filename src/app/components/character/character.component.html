@@ -1,7 +1,11 @@
 <span class="character-card__name">
     {{character.name}}
 </span>
-<span class="character-card__hp">PV: {{character.hp}}</span>
+<div class="character-card__hp-controls">
+    <button class="character-card__hp-button" (click)="decreaseHp()">-</button>
+    <span class="character-card__hp">PV: {{character.hp}}</span>
+    <button class="character-card__hp-button" (click)="increaseHp()">+</button>
+</div>
 <div class="d-flex align-items-center">
     <button class="character-card__delete-button btn btn-danger" (click)="deleteCharacter()">X</button>
 </div>

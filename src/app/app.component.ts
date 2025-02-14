@@ -2,7 +2,8 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { CharacterComponent, Character } from './components/character/character.component';
+import { CharacterComponent } from './components/character/character.component';
+import { Character } from './models/character.model';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,7 @@ export class AppComponent {
       const newCharacter: Character = {
         id: Date.now(), // Use the current timestamp as the id
         name: this.newCharacterName,
-        hp: 100, // Default HP
+        hp: 0, // Default HP
         status: 'Healthy', // Default status
         completed: false // Set the completed status to false
       }

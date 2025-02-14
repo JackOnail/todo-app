@@ -1,69 +1,63 @@
-.character-container {
+.character-container__item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #EEE;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out;
+}
 
-    &__input-group {
-        display: flex;
-        width: 100%;
-        max-width: 500px;
-        margin-top: 20px;
+.character-card__hp-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.character-card__hp-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.character-container__delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.character-container__name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.character-container__hp {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.character-container__checkbox {
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
     }
-
-    &__input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #EEE;
-        border-radius: 5px;
-    }
-
-    &__button {
-        margin-left: 10px;
-        padding: 10px 20px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    &__list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 500px;
-        margin-top: 20px;
-    }
-
-    &__item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #EEE;
-        margin-bottom: 10px;
-        border-radius: 10px;
-        animation: slideIn 0.5s ease-out;
-    }
-
-    &__delete-button {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    &__task {
-        flex: 1;
-        margin-right: 10px;
-    }
-
-    &__checkbox {
-        cursor: pointer;
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
